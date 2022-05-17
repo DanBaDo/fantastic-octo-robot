@@ -8,11 +8,12 @@ from rest.serializers import UserSerializer, GroupSerializer
 
 class UserViewSet(viewsets.ModelViewSet):
     '''
-    Admin CRUD endpoint for User model
+    CRUD endpoint for User model
     '''
     queryset = User.objects.all().order_by('id')
     serializer_class = UserSerializer
-    permission_classes = [permissions.IsAdminUser]
+    #permission_classes = [permissions.IsAdminUser]
+    permission_classes = [permissions.AllowAny]
 
 class GroupViewSet(viewsets.ReadOnlyModelViewSet):
     '''
